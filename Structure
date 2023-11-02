@@ -1,0 +1,72 @@
+Klasy w folderze "Models":
+
+User (Użytkownik):
+Opis: Reprezentuje informacje o użytkowniku.
+Pola: Id, Imię, Nazwisko, Email, Hasło, itp.
+
+Appointment (Wizyta):
+Opis: Reprezentuje informacje o umówionej wizycie.
+Pola: Id, Data, Godzina, Id użytkownika, Status płatności, itp.
+
+Payment (Płatność):
+Opis: Reprezentuje informacje o płatności.
+Pola: Id, Kwota, Data płatności, Id użytkownika, Status płatności, itp.
+
+User_Permission (Uprawnienia)
+Opis: Reprezentuje uprawnienia przypisane do konkretnego użytkownika w systemie. Przechowuje informacje o identyfikatorze użytkownika oraz listę uprawnień przypisanych do tego użytkownika.
+Pola: UserId - pole typu int, które przechowuje identyfikator użytkownika. Jest to unikalny identyfikator, który służy do powiązania uprawnień z konkretnym użytkownikiem w systemie.
+Permissions - pole typu List<string>, które przechowuje listę uprawnień przypisanych do użytkownika. Każde uprawnienie jest reprezentowane jako string. Może to być np. nazwa roli, która określa zestaw uprawnień, jakie użytkownik posiada.
+
+Reports (Raporty) 
+Opis: Moduł raportów umożliwia generowanie różnych raportów na podstawie danych związanych z wizytami, płatnościami i innymi aspektami systemu. Raporty mogą być wykorzystywane do analizy danych, monitorowania wydajności, generowania statystyk itp.
+Pola: ReportId - identyfikator raportu
+ReportName - nazwa raportu
+ReportType - typ raportu (np. dzienny, miesięczny, roczny)
+ReportData - dane raportu
+
+EmployeeManagement (Moduł zarządzania pracownikami)
+Opis:Moduł zarządzania pracownikami umożliwia dodawanie, edycję i usuwanie informacji o pracownikach w systemie. Pracownicy mogą być stomatologami, asystentami, recepcjonistami itp.
+Pola:
+EmployeeId - identyfikator pracownika
+FirstName - imię pracownika
+LastName - nazwisko pracownika
+Position - stanowisko pracownika (stomatolog, asystent, recepcjonista)
+Email - adres e-mail pracownika
+Phone - numer telefonu pracownika
+
+Kontrolery w folderze "Controllers":
+
+UserController (Kontroler użytkownika):
+Opis: Zarządza operacjami związanymi z użytkownikami, takimi jak rejestracja, logowanie, wylogowywanie, zarządzanie profilem itp.
+Metody: Register (Rejestracja), Login (Logowanie), Logout (Wylogowywanie), UpdateProfile (Aktualizacja profilu), itp.
+
+AppointmentController (Kontroler wizyt):
+Opis: Zarządza operacjami związanymi z wizytami, takimi jak umawianie wizyt, przeglądanie historii wizyt, edycja wizyt itp.
+Metody: CreateAppointment (Tworzenie wizyty), GetAppointmentHistory (Pobieranie historii wizyt), EditAppointment (Edycja wizyty), itp.
+
+PaymentController (Kontroler płatności):
+Opis: Zarządza operacjami związanymi z płatnościami, takimi jak opłacanie wizyt, sprawdzanie statusu płatności, dodawanie/usuwanie płatności itp.
+Metody: MakePayment (Dokonywanie płatności), CheckPaymentStatus (Sprawdzanie statusu płatności), AddPayment (Dodawanie płatności), RemovePayment (Usuwanie płatności), itp
+
+User_permissionController (Kontroler uprawnień)
+Opis : obsługuje żądania związane z zarządzaniem uprawnieniami użytkowników. Udostępnia metody do pobierania uprawnień użytkownika oraz ustawiania uprawnien.
+Metody : GetUserPermissions(int userId) - Metoda typu GET, która pobiera uprawnienia użytkownika o podanym identyfikatorze userId. Wywołuje serwis IUserPermissionService w celu pobrania uprawnień użytkownika. Jeśli uprawnienia nie istnieją, zwraca kod odpowiedzi 404 (NotFound). W przeciwnym razie zwraca kod odpowiedzi 200 (Ok) wraz z listą uprawnień użytkownika.
+SetUserPermissions(int userId, List<string> permissions) - Metoda typu POST, która ustawia uprawnienia dla użytkownika o podanym identyfikatorze userId. Wywołuje serwis  IUserPermissionService w celu ustawienia uprawnień użytkownika. Jeśli operacja się nie powiedzie, zwraca kod odpowiedzi 400 (BadRequest). W przeciwnym razie zwraca kod odpowiedzi 200 (Ok).
+
+ReportsController (Kontroler raportów)
+Opis:
+Kontroler ReportsController obsługuje żądania związane z generowaniem i zarządzaniem raportami w systemie. Udostępnia metody do generowania raportów, pobierania istniejących raportów, zarządzania raportami itp.
+Metody kontrolera:
+GenerateReport(ReportType reportType) - generuje raport o określonym typie (dzienny, miesięczny, roczny)
+GetReport(int reportId) - pobiera raport o podanym identyfikatorze
+GetAllReports() - pobiera wszystkie dostępne raporty
+DeleteReport(int reportId) - usuwa raport o podanym identyfikatorze
+
+EmployeeManagementController - (Kontroler zarządzania pracownikami)
+Opis: Kontroler EmployeeManagementController obsługuje żądania związane z zarządzaniem pracownikami w systemie. Udostępnia metody do dodawania, edycji, usuwania i pobierania informacji o pracownikach.
+Metody kontrolera:
+AddEmployee(Employee employee) - dodaje nowego pracownika do systemu
+EditEmployee(int employeeId, Employee employee) - edytuje informacje o pracowniku o podanym identyfikatorze
+DeleteEmployee(int employeeId) - usuwa pracownika o podanym identyfikatorze
+GetEmployee(int employeeId) - pobiera informacje o pracowniku o podanym identyfikatorze
+GetAllEmployees() - pobiera wszystkich pracowników w systemie
