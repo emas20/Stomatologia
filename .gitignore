@@ -1,0 +1,98 @@
+
+*.vsidx
+.vs/Stomatologia/v17/.suo
+.vs/Stomatologia/v17/.suo
+
+# Prerequisites
+*.d
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+
+# Ignoruj pliki NuGet
+packages/
+
+# Ignoruj pliki �rodowiska
+.env
+
+# Ignoruj pliki zale�no�ci Node.js
+node_modules/
+
+# Ignoruj pliki generowane przez IDE
+.idea/
+.vscode/
+
+# Ignoruj pliki generowane przez system operacyjny
+Thumbs.db
+.DS_Store
+
+# Ignoruj pliki test�w
+test-results/
+
+# Ignoruj pliki tymczasowe edytora
+*.swp
+*.swo
+
+# Ignoruj pliki wygenerowane przez narz�dzia budowania
+*.msi
+*.zip
+*.rar
+
+# Ignoruj pliki konfiguracyjne
+*.config
+*.config.user
+
+# Ignoruj pliki tymczasowe
+*.tmp
+*.temp
+
+# Ignoruj pliki log�w
+*.log
+.vs/Stomatologia/v17/.suo
