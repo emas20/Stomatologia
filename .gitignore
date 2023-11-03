@@ -1,36 +1,99 @@
+*.cache
 
-*.v2
-*.vsidx
-*.dll
-*.json
-*.so
-*.dylib
-*.pdb
-*.props
-*.cache
-*.txt
-*.user
-*.CopyComplete
-*.exe
-*.bin
-.vs/Stomatologia/v17/.suo
+# Prerequisites
+*.d
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
 *.a
-*.vsidx
-*.vsidx
-obj/Debug/net6.0/Stomatologia.csproj.AssemblyReference.cache
-*.cache
-*.editorconfig
-*.json
-obj/project.assets.json
-obj/project.nuget.cache
-*.cache
-*.json
-obj/Stomatologia.csproj.nuget.dgspec.json
-*.props
-obj/Stomatologia.csproj.nuget.g.props
-*.targets
-obj/Stomatologia.csproj.nuget.g.targets
-Stomatologia.csproj
-*.csproj
-obj/Debug/net6.0/Stomatologia.assets.cache
-*.cache
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+
+# Ignoruj pliki i foldery generowane przez Visual Studio
+.vs/
+bin/
+obj/
+
+# Ignoruj pliki wykonywalne
+*.exe
+*.dll
+*.pdb
+
+# Ignoruj pliki wygenerowane przez narzędzia budowania
+*.msi
+*.zip
+*.rar
+
+# Ignoruj pliki konfiguracyjne
+*.config
+*.config.user
+
+# Ignoruj pliki tymczasowe
+*.tmp
+*.temp
+
+# Ignoruj pliki logów
+*.log
+
+# Ignoruj pliki użytkownika
+*.user
+
+# Ignoruj pliki NuGet
+packages/
+
+# Ignoruj pliki środowiska
+.env
+
+# Ignoruj pliki zależności Node.js
+node_modules/
+
+# Ignoruj pliki generowane przez IDE
+.idea/
+.vscode/
+
+# Ignoruj pliki generowane przez system operacyjny
+Thumbs.db
+.DS_Store
+
+# Ignoruj pliki testów
+test-results/
+
+# Ignoruj pliki tymczasowe edytora
+*.swp
+*.swo
