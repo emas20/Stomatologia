@@ -1,7 +1,10 @@
-﻿namespace Stomatologia.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Stomatologia.Models
 {
     public class User
     {
+            [Key]
             public int UserId { get; set; }
             public string FirstName { get; set; }
             public string LastName { get; set; }
@@ -12,13 +15,13 @@
         // Dodaj inne pola użytkownika, jeśli są wymagane
 
         // Konstruktor
-        public User(string firstName, string lastName, string email, string password, string pesel, string phoneNumber)
+        public User(string firstName, string lastName, string email, string password, string PESEL, string phoneNumber)
         {
             FirstName = firstName;
             LastName = lastName;
             Email = email;
             Password = password;
-            PESEL = pesel;
+            this.PESEL = PESEL;
             PhoneNumber = phoneNumber;
         }
     }

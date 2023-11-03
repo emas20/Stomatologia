@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Stomatologia.Models;
 
 namespace Stomatologia.Data
 {
@@ -9,5 +10,6 @@ namespace Stomatologia.Data
             : base(options)
         {
         }
+        public DbSet<Stomatologia.Models.User>? User { get; set; }
     }
 }
