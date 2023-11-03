@@ -2,7 +2,8 @@
 Projekt z programowania zaawansowanego 
 
 
-Projekt zaliczeniowy polega na stworzeniu strony internetowej. Tematyka jest dowolna, ale musi być wybrana w taki sposób, by spełnić wszystkie wymagania podane niżej. Zatem tematyka, która naturalnie pomija niektóre funkcjonalności (np. strony na których nie ma sensu tworzenie kont użytkowników), nie jest akceptowalna.
+Projekt zaliczeniowy polega na stworzeniu strony internetowej. Tematyka jest dowolna, ale musi być wybrana w taki sposób, by spełnić wszystkie wymagania podane niżej. 
+Zatem tematyka, która naturalnie pomija niektóre funkcjonalności (np. strony na których nie ma sensu tworzenie kont użytkowników), nie jest akceptowalna.
 
 **Wymagania funkcjonalne:**
 
@@ -15,7 +16,8 @@ Projekt musi być napisany w języku C#.
 
 **#Projekt Umawianie Wizyt Stomatologicznych**
 
-Projekt Umawianie Wizyt Stomatologicznych jest stroną internetową umożliwiającą użytkownikom umawianie wizyt u stomatologa. Projekt został stworzony w ramach zadania zaliczeniowego.
+Projekt Umawianie Wizyt Stomatologicznych jest stroną internetową umożliwiającą użytkownikom umawianie wizyt u stomatologa. 
+Projekt został stworzony w ramach zadania zaliczeniowego.
 
 **Wymagania**
 
@@ -28,11 +30,17 @@ Baza danych (np. SQL Server, MySQL)
 
 **Instrukcje instalacji**
 
-Sklonuj repozytorium na swoje lokalne środowisko: git clone https://github.com/twoj-repozytorium.git Otwórz projekt w wybranym edytorze kodu (np. Visual Studio). Skonfiguruj połączenie do bazy danych w pliku appsettings.json. Uruchom migracje, aby zaktualizować bazę danych: dotnet ef database update Uruchom projekt: dotnet run Otwórz przeglądarkę internetową i przejdź do adresu http://localhost:5000, aby zobaczyć stronę główną projektu.
+Sklonuj repozytorium na swoje lokalne środowisko: git clone https://github.com/twoj-repozytorium.git 
+Otwórz projekt w wybranym edytorze kodu (np. Visual Studio). 
+Skonfiguruj połączenie do bazy danych w pliku appsettings.json. 
+Uruchom migracje, aby zaktualizować bazę danych: dotnet ef database update 
+Uruchom projekt: dotnet run 
+Otwórz przeglądarkę internetową i przejdź do adresu **http://localhost:5000**, aby zobaczyć stronę główną projektu.
 
 **Dokumentacja API**
 
-Projekt udostępnia API, które umożliwia komunikację z aplikacją. Dokumentacja API jest dostępna pod adresem http://localhost:5000/swagger, po uruchomieniu projektu.
+Projekt udostępnia API, które umożliwia komunikację z aplikacją. 
+Dokumentacja API jest dostępna pod adresem **http://localhost:5000/swagger**, po uruchomieniu projektu.
 
 **Autorzy**
 
