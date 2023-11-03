@@ -1,7 +1,4 @@
-
-*.vsidx
-.vs/Stomatologia/v17/.suo
-.vs/Stomatologia/v17/.suo
+*.cache
 
 # Prerequisites
 *.d
@@ -33,14 +30,6 @@
 *.so.*
 *.dylib
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
 # Debug files
 *.dSYM/
 *.su
@@ -56,31 +45,17 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-# Ignoruj pliki NuGet
-packages/
+# Ignoruj pliki i foldery generowane przez Visual Studio
+.vs/
+bin/
+obj/
 
-# Ignoruj pliki �rodowiska
-.env
+# Ignoruj pliki wykonywalne
+*.exe
+*.dll
+*.pdb
 
-# Ignoruj pliki zale�no�ci Node.js
-node_modules/
-
-# Ignoruj pliki generowane przez IDE
-.idea/
-.vscode/
-
-# Ignoruj pliki generowane przez system operacyjny
-Thumbs.db
-.DS_Store
-
-# Ignoruj pliki test�w
-test-results/
-
-# Ignoruj pliki tymczasowe edytora
-*.swp
-*.swo
-
-# Ignoruj pliki wygenerowane przez narz�dzia budowania
+# Ignoruj pliki wygenerowane przez narzędzia budowania
 *.msi
 *.zip
 *.rar
@@ -93,6 +68,32 @@ test-results/
 *.tmp
 *.temp
 
-# Ignoruj pliki log�w
+# Ignoruj pliki logów
 *.log
-.vs/Stomatologia/v17/.suo
+
+# Ignoruj pliki użytkownika
+*.user
+
+# Ignoruj pliki NuGet
+packages/
+
+# Ignoruj pliki środowiska
+.env
+
+# Ignoruj pliki zależności Node.js
+node_modules/
+
+# Ignoruj pliki generowane przez IDE
+.idea/
+.vscode/
+
+# Ignoruj pliki generowane przez system operacyjny
+Thumbs.db
+.DS_Store
+
+# Ignoruj pliki testów
+test-results/
+
+# Ignoruj pliki tymczasowe edytora
+*.swp
+*.swo
