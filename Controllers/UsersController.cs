@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,22 +12,52 @@ using Stomatologia.Models;
 
 namespace Stomatologia.Controllers
 {
+    [Authorize]
     public class UsersController : Controller
     {
+        private readonly UserManager<User> _userManager;
         private readonly ApplicationDbContext _context;
+        private readonly SignInManager<User> _signInManager;
 
-        public UsersController(ApplicationDbContext context)
+        public UsersController(SignInManager<User> signInManager,UserManager<User> userManager, ApplicationDbContext context)
         {
             _context = context;
+            _signInManager = signInManager;
+            _userManager = userManager;
         }
 
         // GET: Users
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Profil()
         {
-              return _context.User != null ? 
-                          View(await _context.User.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.User'  is null.");
+            // Pobierz zalogowanego użytkownika
+            var user = await _userManager.GetUserAsync(User);
+
+            if (user == null)
+            {
+                // Obsługa błędu, użytkownik niezalogowany
+                return RedirectToAction("Login");
+            }
+
+            // Przekazanie modelu użytkownika do widoku
+            return View(user);
         }
+
+        public IActionResult UmawianieWizyt()
+        {
+            // Logika umawiania wizyt, np. pobieranie dostępnych terminów
+            // i wyświetlanie ich w widoku
+            return View();
+        }
+
+        //public IActionResult HistoriaWizyt()
+        //{
+            // Pobierz historię wizyt użytkownika z bazy danych
+         //   var userId = _userManager.GetUserId(User);
+            //var historiaWizyt = _context.HistoriaWizyt.Where(w => w.UserId == userId).ToList();
+
+            // Przekazanie historii wizyt do widoku
+          //return View(historiaWizyt);
+       // }
 
         // GET: Users/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -56,6 +88,40 @@ namespace Stomatologia.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        /*
+         * 
+         * public async Task<IActionResult Rejestracja(RejestracjaViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            // Utwórz nowego użytkownika na podstawie danych z formularza
+            var newUser = new ApplicationUser
+            {
+                UserName = model.Email,
+                Email = model.Email,
+                // Inne właściwości użytkownika
+            };
+
+            var result = await _userManager.CreateAsync(newUser, model.Haslo);
+
+            if (result.Succeeded)
+            {
+                // Zaloguj nowego użytkownika
+                await _signInManager.SignInAsync(newUser, isPersistent: false);
+                return RedirectToAction("Profil");
+            }
+
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+        }
+
+        return View(model);
+    }
+
+         * */
+
         public async Task<IActionResult> Create([Bind("UserId,FirstName,LastName,Email,Password,PESEL,PhoneNumber")] User user)
         {
             if (ModelState.IsValid)
