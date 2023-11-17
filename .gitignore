@@ -1,52 +1,54 @@
+*.cache
 
-*.v2
-*.vsidx
-*.dll
-*.json
-*.so
-*.dylib
-*.pdb
-*.props
-*.cache
-*.txt
-*.user
-*.CopyComplete
-*.exe
-*.bin
-.vs/Stomatologia/v17/.suo
+# Prerequisites
+*.d
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
 *.a
-*.vsidx
-*.vsidx
-obj/Debug/net6.0/Stomatologia.csproj.AssemblyReference.cache
-*.cache
-*.editorconfig
-*.json
-obj/project.assets.json
-obj/project.nuget.cache
-*.cache
-*.json
-obj/Stomatologia.csproj.nuget.dgspec.json
-*.props
-obj/Stomatologia.csproj.nuget.g.props
-*.targets
-obj/Stomatologia.csproj.nuget.g.targets
-Stomatologia.csproj
-*.csproj
-obj/Debug/net6.0/Stomatologia.assets.cache
-*.cache
-*.targets
-*.props
-*.json
-*.BuildWithSkipAnalyzers
-.vs/Stomatologia/v17/.suo
-*.config
-.vs/Stomatologia/FileContentIndex/a6f9c733-1836-402d-a220-027702398b40.vsidx
-.vs/Stomatologia/v17/.suo
-obj/Debug/net6.0/Stomatologia.assets.cache
-obj/Debug/net6.0/Stomatologia.csproj.AssemblyReference.cache
-obj/Debug/net6.0/Stomatologia.GeneratedMSBuildEditorConfig.editorconfig
-obj/project.assets.json
-obj/project.nuget.cache
-obj/Stomatologia.csproj.nuget.dgspec.json
-obj/Stomatologia.csproj.nuget.g.props
-obj/Stomatologia.csproj.nuget.g.targets
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+
+# Ignoruj pliki i foldery generowane przez Visual Studio
+.vs/
+bin/
+obj/
+
+# Ignoruj pliki wykonywalne
+*.exe
