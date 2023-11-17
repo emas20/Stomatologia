@@ -15,11 +15,11 @@ namespace Stomatologia.Controllers
     [Authorize]
     public class UsersController : Controller
     {
-        private readonly UserManager<User> _userManager;
+        private readonly UserManager<IdentityUser> _userManager;
         private readonly ApplicationDbContext _context;
-        private readonly SignInManager<User> _signInManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
 
-        public UsersController(SignInManager<User> signInManager,UserManager<User> userManager, ApplicationDbContext context)
+        public UsersController(SignInManager<IdentityUser> signInManager,UserManager<IdentityUser> userManager, ApplicationDbContext context)
         {
             _context = context;
             _signInManager = signInManager;

@@ -4,9 +4,7 @@ using Microsoft.AspNetCore.Identity;
 namespace Stomatologia.Models
 {
     public class User : IdentityUser
-    {
-      
-           
+    {     
            // Dodaj niestandardowe właściwości użytkownika, jeśli są potrzebne
             public int UserId { get; set; }
            // [Key]   
