@@ -21,7 +21,7 @@
                     {
                         <!-- Menu dla zalogowanego użytkownika -->
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Uzytkownik" asp-action="Profil">Twój Profil</a>
+                            <a class="nav-link" asp-controller="EditProfileViewModels" asp-action="Details/ID">Twój Profil</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Uzytkownik" asp-action="UmawianieWizyt">Umów wizytę</a>
@@ -30,7 +30,7 @@
                             <a class="nav-link" asp-controller="Uzytkownik" asp-action="HistoriaWizyt">Historia wizyt</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Account" asp-action="Logout">Wyloguj się</a>
+                            <a class="nav-link" asp-controller="Identity" asp-action="Logout">Wyloguj się</a>
                         </li>
                     }
                     else
