@@ -1,0 +1,17 @@
+﻿@model UmowWizyteViewModel
+
+<h2>Umów wizytę</h2>
+
+@using (Html.BeginForm("PotwierdzWizyte", "Wizyty", FormMethod.Post))
+{
+    <label for="DostepniStomatolodzy">Wybierz stomatologa:</label>
+    <select asp-for="WybranyStomatologId" asp-items="Model.DostepniStomatolodzy"></select>
+
+    <label for="WybranaData">Wybierz datę:</label>
+    <input asp-for="WybranaData" type="date">
+
+    <label for="WybranaGodzina">Wybierz godzinę:</label>
+    <input asp-for="WybranaGodzina" type="time">
+
+    <button type="submit">Potwierdź wizytę</button>
+}

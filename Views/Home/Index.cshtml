@@ -1,8 +1,35 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model Clinic
+@{
+    
+    ViewData["Title"] = "Strona Główna";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Witamy</h1>
+</div>
+
+<div>
+    <h2>Dane kliniki</h2>
+    <p>Nazwa: @Model.Name</p>
+    <p>Adres: @Model.Address</p>
+    <p>Numer telefonu: @Model.PhoneNumber</p>
+</div>
+
+<div>
+    <h2>Panel logowania</h2>
+    <form method="post" asp-controller="Account" asp-action="Login">
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="password">Hasło:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+            <a asp-action="ForgotPassword">Nie pamiętam hasła</a> 
+        </div>
+        <button type="submit">Zaloguj</button>
+        <a asp-controller="Account" asp-action="Register">Rejestruj</a>
+    </form>
 </div>
