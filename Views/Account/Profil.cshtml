@@ -1,0 +1,86 @@
+﻿@page
+@using System.Security.Claims
+@model UserProfileViewModel
+
+<h2>Twój profil</h2>
+
+<div class="container">
+    <div>
+        <h2 class="text-center">Informacje o użytkowniku : </h2>
+        <h3 class="text-primary text-center">@Html.DisplayFor(model => model.Imie)</h3>
+        <hr />
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="bg-light col-6 rounded pt-3">
+                <dl class="row">
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.Imie)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Imie)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.Nazwisko)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Nazwisko)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.Pesel)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Pesel)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.PhoneNumber)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.PhoneNumber)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.Adres)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Adres)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.Role)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Role)
+                    </dd>
+                    <dd class="col-sm-8">
+                        Użytkownik
+                    </dd>
+
+                </dl>
+            </div>
+        </div>
+    </div>
+   
+
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script type="text/javascript">
+        window.onload = function () {
+            if ('@TempData["Message"]' != "") {
+                $.notify("@TempData["Message"]", { color: "#fff", background: "#20D67B" })
+            }
+            else if ('@TempData["ErrorMessage"]' != "") {
+                $.notify("@TempData["ErrorMessage"]", { color: "#fff", background: "#D44950" })
+            }
+        }
+    </script>
+}

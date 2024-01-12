@@ -1,0 +1,49 @@
+﻿@model Stomatologia.Models.UserProfileViewModel
+
+<h2>Twoje dane</h2>
+<div>
+    <h4>Imię i nazwisko: @Model.Imie @Model.Nazwisko</h4>
+    <h4>Email: @Model.Email</h4>
+    <h4>Pesel: @Model.Pesel</h4>
+    <h4>Numer Telefonu: @Model.PhoneNumber</h4>
+    <h4>Adres : @Model.Adres</h4>
+</div>
+
+@using (Html.BeginForm("Edit", "Account", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <h2>Edytuj swoje dane</h2>
+    <div>
+        @Html.LabelFor(m => m.Imie)
+        @Html.TextBoxFor(m => m.Imie, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Imie)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Nazwisko)
+        @Html.TextBoxFor(m => m.Nazwisko, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Nazwisko)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", type = "email" })
+        @Html.ValidationMessageFor(m => m.Email)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Pesel)
+        @Html.TextBoxFor(m => m.Pesel, new { @class = "form-control"})
+        @Html.ValidationMessageFor(m => m.Pesel)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.PhoneNumber)
+        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", type = "PhoneNumber" })
+        @Html.ValidationMessageFor(m => m.PhoneNumber)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Adres)
+        @Html.TextBoxFor(m => m.Adres, new { @class = "form-control", type = "Adress" })
+        @Html.ValidationMessageFor(m => m.Adres)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
+}
