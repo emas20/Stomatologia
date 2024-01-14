@@ -11,5 +11,8 @@ namespace Stomatologia.Models
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        [Display(Name = "Zapamietaj mnie")]
+        public bool RememberMe { get; set; }
     }
 }

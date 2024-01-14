@@ -15,7 +15,14 @@ namespace Stomatologia.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var clinic = new Clinic
+            {
+                Name = "Klinika Dentystyczna Ząbek",
+                Address = "Os. Wichrowe Wzgórze 241/121, 60-281 Poznań",
+                PhoneNumber = "+48 61 251 322"
+            };
+
+            return View(clinic);
         }
 
         public IActionResult Privacy()

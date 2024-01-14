@@ -1,0 +1,103 @@
+﻿@page
+@using System.Security.Claims
+@model UserProfileViewModel
+
+<h2>Twój profil</h2>
+
+<div class="container">
+    <div>
+        <h2 class="text-center">Customer Information</h2>
+        <h3 class="text-primary text-center">@Html.DisplayFor(model => model.Imie)</h3>
+        <hr />
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="bg-light col-6 rounded pt-3">
+                <dl class="row">
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.Imie)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.Imie)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.PhoneNumber)
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.PhoneNumber)
+                    </dd>
+                    <dt class="col-sm-4">
+                        @Html.DisplayNameFor(model => model.Role)
+                    </dt>
+                    <dd class="col-sm-8">
+                        Customer
+                    </dd>
+
+                </dl>
+            </div>
+        </div>
+    </div>
+    @if (User.FindFirstValue(ClaimTypes.Role) == "Customer")
+    {
+        <div class="text-center mt-5">
+            <a class="btn btn-primary col-4" href="/Account/Edit/User?id=@Model.Id"><i class="fa-solid fa-pen-to-square"></i> | Edit</a>
+        </div>
+    }
+
+
+</div>
+
+@section Styles {
+    <style>
+        .row {
+            font-size: 1.2rem;
+        }
+    </style>
+}
+
+    @section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script type="text/javascript">
+        window.onload = function() {
+            if ('@TempData["Message"]' != "") {
+                $.notify("@TempData["Message"]", { color: "#fff", background: "#20D67B" })
+            }
+            else if ('@TempData["ErrorMessage"]' != "") {
+                $.notify("@TempData["ErrorMessage"]", { color: "#fff", background: "#D44950" })
+            }
+        }
+    </script>
+}
+
+<dl>
+    <dt>Id:</dt>
+    <dd>@Model.Id</dd>
+
+    <dt>Imie:</dt>
+    <dd>@Model.Imie</dd>
+
+    <dt>Nazwisko:</dt>
+    <dd>@Model.Nazwisko</dd>
+
+    <dt>Pesel:</dt>
+    <dd>@Model.Pesel</dd>
+
+    <dt>Numer Telefonu:</dt>
+    <dd>@Model.PhoneNumber</dd>
+
+    <dt>Adres:</dt>
+    <dd>@Model.Adres</dd>
+
+    <dt>Email:</dt>
+    <dd>@Model.Email</dd>
+    
+
+</dl>

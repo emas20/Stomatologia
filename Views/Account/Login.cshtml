@@ -1,0 +1,72 @@
+﻿﻿@using Microsoft.AspNetCore.Identity
+@using IdentityServer4
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@{
+    ViewData["Title"] = "Login";
+}
+@model LoginModel
+
+<h2>Login</h2>
+
+<div class="content pt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <img src="~/images/login.png" alt="Image" class="img-fluid">
+            </div>
+            <div class="col-12 col-md-6 px-5">
+                <div class="row justify-content-center">
+                    <div class=" col-8 col-md-12">
+                        <div class="mb-4">
+                            <h3 class="text-center">Login</h3>
+                        </div>
+                        <form method="post" id="loginForm">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input asp-for="Email" class="form-control" id="email" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Password"></label>
+                                <input asp-for="Password" class="form-control" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                            <div class="d-flex mb-4 align-items-center">
+                                Nie masz jeszcze konta? 
+                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Register">Zarejestruj się</a>
+                                    
+                                
+                            </div>
+                            <div class="text-center">
+                                <button type="button" class="btn btn-primary col-md-6" onclick="onClickSubmit()">Log in</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        function onClickSubmit() {
+            $("#loginForm").submit();
+        }
+    </script>
+}
+<script type="text/javascript">
+    window.onload = function() {
+        if ('@TempData["Message"]' != "") {
+            $.notify("@TempData["Message"]", { color: "#fff", background: "#20D67B" })
+        }
+        else if ('@TempData["ErrorMessage"]' != "") {
+            $.notify("@TempData["ErrorMessage"]", { color: "#fff", background: "#D44950" })
+        }
+    }
+</script>
