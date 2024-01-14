@@ -47,7 +47,7 @@ namespace Stomatologia.Controllers
             {
                 var user = new IdentityUser { UserName = model.Email, Email = model.Email };
                 //var result = await _userManager.CreateAsync(user, model.Password);
-                
+
                 var claims = new List<Claim>
      {
          new Claim("Imie", model.Imie),
@@ -63,12 +63,12 @@ namespace Stomatologia.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
-                    
+
                     // Dodawanie claimów
                     await _userManager.AddClaimsAsync(user, claims);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
-                    
+
                     // Dodawanie do roli
                     await _userManager.AddToRoleAsync(user, "User");
                     //await _emailSender.SendEmailAsync(model.Email, "Confirm your account",
@@ -76,7 +76,7 @@ namespace Stomatologia.Controllers
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     _logger.LogInformation("User created a new account with password.");
-                    
+
 
                     return RedirectToAction("UmowWizyte", "Account");
                 }
