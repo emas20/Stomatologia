@@ -12,7 +12,9 @@ using System;
 using System.Reflection;
 
 [assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartAttribute("Microsoft.AspNetCore.Identity.UI")]
+
 [assembly: Microsoft.AspNetCore.Mvc.ApplicationParts.ApplicationPartAttribute("X.PagedList.Mvc.Core")]
+
 
 // Wygenerowane przez klasę WriteCodeFragment programu MSBuild.
 

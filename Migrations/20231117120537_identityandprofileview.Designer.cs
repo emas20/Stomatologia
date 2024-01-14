@@ -6,29 +6,20 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Stomatologia.Data;
-<<<<<<<< HEAD:Migrations/ApplicationDbContextModelSnapshot.cs
-========
-
-#nullable disable
->>>>>>>> main:Migrations/20231117110308_identity.Designer.cs
 
 #nullable disable
 
-namespace Stomatologia.Migrations
+namespace Stomatologia.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231117110308_identity")]
-    partial class identity
+    [Migration("20231117120537_identityandprofileview")]
+    partial class identityandprofileview
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-<<<<<<<< HEAD:Migrations/ApplicationDbContextModelSnapshot.cs
-                .HasAnnotation("ProductVersion", "6.0.25")
-========
-                .HasAnnotation("ProductVersion", "6.0.24")
->>>>>>>> main:Migrations/20231117110308_identity.Designer.cs
+                .HasAnnotation("ProductVersion", "6.0.23")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -241,8 +232,7 @@ namespace Stomatologia.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-<<<<<<<< HEAD:Migrations/ApplicationDbContextModelSnapshot.cs
-            modelBuilder.Entity("Stomatologia.Models.UmowWizyteViewModel", b =>
+            modelBuilder.Entity("Stomatologia.Models.EditProfileViewModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -250,66 +240,46 @@ namespace Stomatologia.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<DateTime>("WybranaData")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("ConfirmNewPassword")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("WybranaGodzina")
+                    b.Property<string>("CurrentPassword")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("WybranyStomatologId")
-                        .IsRequired()
+                    b.Property<string>("IdentityUserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("WybranyStomatologId");
-
-                    b.ToTable("Wizyty", (string)null);
-                });
-
-            modelBuilder.Entity("Stomatologia.Models.Stomatolog", b =>
-                {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
-
                     b.Property<string>("Imie")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nazwisko")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Specjalizacja")
+                    b.Property<string>("NewPassword")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UmowWizyteViewModelId")
-                        .HasColumnType("int");
+                    b.HasKey("Id");
 
-                    b.HasIndex("UmowWizyteViewModelId");
+                    b.HasIndex("IdentityUserId");
 
-                    b.HasDiscriminator().HasValue("Stomatolog");
+                    b.ToTable("EditProfileViewModel");
                 });
 
-========
->>>>>>>> main:Migrations/20231117110308_identity.Designer.cs
             modelBuilder.Entity("Stomatologia.Models.User", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
-<<<<<<<< HEAD:Migrations/ApplicationDbContextModelSnapshot.cs
-                    b.Property<string>("Adres")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Imie")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("User_Imie");
-
-                    b.Property<string>("Nazwisko")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("User_Nazwisko");
-========
                     b.Property<DateTime>("DataUrodzenia")
                         .HasColumnType("datetime2");
 
@@ -320,7 +290,6 @@ namespace Stomatologia.Migrations
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
->>>>>>>> main:Migrations/20231117110308_identity.Designer.cs
 
                     b.Property<string>("PESEL")
                         .IsRequired()
@@ -387,32 +356,13 @@ namespace Stomatologia.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Stomatologia.Models.UmowWizyteViewModel", b =>
+            modelBuilder.Entity("Stomatologia.Models.EditProfileViewModel", b =>
                 {
-                    b.HasOne("Stomatologia.Models.Stomatolog", "Stomatolog")
-                        .WithMany("Wizyty")
-                        .HasForeignKey("WybranyStomatologId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
+                        .WithMany()
+                        .HasForeignKey("IdentityUserId");
 
-                    b.Navigation("Stomatolog");
-                });
-
-            modelBuilder.Entity("Stomatologia.Models.Stomatolog", b =>
-                {
-                    b.HasOne("Stomatologia.Models.UmowWizyteViewModel", null)
-                        .WithMany("DostepniStomatolodzy")
-                        .HasForeignKey("UmowWizyteViewModelId");
-                });
-
-            modelBuilder.Entity("Stomatologia.Models.UmowWizyteViewModel", b =>
-                {
-                    b.Navigation("DostepniStomatolodzy");
-                });
-
-            modelBuilder.Entity("Stomatologia.Models.Stomatolog", b =>
-                {
-                    b.Navigation("Wizyty");
+                    b.Navigation("IdentityUser");
                 });
 #pragma warning restore 612, 618
         }
