@@ -1,0 +1,20 @@
+﻿@model UmowWizyteViewModel
+
+<div class="container">
+    <h2>Potwierdzenie wizyty</h2>
+    <form class="form-horizontal" asp-action="PotwierdzWizyte" method="post">
+        <div class="form-group">
+            <label for="WybranyStomatologId">Wybrany Stomatolog:</label>
+            <input type="text" class="form-control" asp-for="WybranyStomatologId" />
+        </div>
+        <div class="form-group">
+            <label for="WybranaData">Wybrana Data:</label>
+            <input type="date" class="form-control" asp-for="WybranaData" />
+        </div>
+        <div class="form-group">
+            <label for="WybranaGodzina">Wybrana Godzina:</label>
+            <input type="time" class="form-control" asp-for="WybranaGodzina" />
+        </div>
+        <button type="submit" class="btn btn-primary">Potwierdź</button>
+    </form>
+</div>

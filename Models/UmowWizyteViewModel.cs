@@ -16,6 +16,8 @@ namespace Stomatologia.Models
         
         [Required(ErrorMessage = "Wybierz stomatologa.")]
         public string? WybranyStomatologId { get; set; }
+
+        //public IEnumerable<string>? DostepneGodziny { get; set; }
         public Stomatolog? Stomatolog { get; set; }
     }
 }

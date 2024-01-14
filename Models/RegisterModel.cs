@@ -33,6 +33,6 @@ namespace Stomatologia.Models
         [Required]
         [DataType(DataType.PhoneNumber)]
         public string PhoneNumber { get; set; }
-        public string Role { get;set; }
+        //public string Role { get;set; }
     }
 }

@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Stomatologia")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb3be9ffacd1861cca5d5cb5e0f301fb497d80aa")]
 [assembly: System.Reflection.AssemblyProductAttribute("Stomatologia")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Stomatologia")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

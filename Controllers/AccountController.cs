@@ -40,7 +40,8 @@ namespace Stomatologia.Controllers
             return View();
         }
 
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterModel model)
         {
             if (ModelState.IsValid)
@@ -56,7 +57,7 @@ namespace Stomatologia.Controllers
          new Claim("Telefon", model.PhoneNumber),
          new Claim("Adres", model.Adres),
          new Claim("Email",model.Email ),
-         new Claim("Role", model.Role="User")
+         //new Claim("Role", model.Role="User")
 
      };
                 var result = await _userManager.CreateAsync(user, model.Password);
@@ -171,6 +172,7 @@ namespace Stomatologia.Controllers
             return View(model);
         }
         [Authorize]
+        [HttpGet]
         public IActionResult GetAvailableDatesAndHours(string stomatologId, DateTime selectedDate)
         {
             _logger.LogInformation($"Pobieranie dostępnych dat i godzin dla stomatologa o ID {stomatologId} w dniu {selectedDate}.");
@@ -184,6 +186,8 @@ namespace Stomatologia.Controllers
         }
 
         [Authorize]
+        [HttpGet]
+        
         public IActionResult UmowWizyte(string selectedStomatologId)
         {
             _logger.LogInformation($"Umawianie wizyty dla stomatologa o ID {selectedStomatologId}.");
@@ -212,26 +216,10 @@ namespace Stomatologia.Controllers
 
             return View();
         }
-            /*public List<SelectListItem> PobierzDostepnychStomatologow()
-            {
-                var stomatolodzy = new List<Stomatolog>();
-
-                // Tutaj dodajemy swoich stomatologów do listy
-                stomatolodzy.Add(new Stomatolog { Id = 1, Imie = "Jan", Nazwisko = "Kowalski", Specjalizacja = "Specjalizacja 1" });
-                stomatolodzy.Add(new Stomatolog { Id = 2, Imie = "Anna", Nazwisko = "Nowak", Specjalizacja = "Specjalizacja 2" });
-
-                var selectListItems = stomatolodzy.Select(s => new SelectListItem
-                {
-                    Value = s.Id.ToString(),
-                    Text = s.ImieNazwisko
-                });
-
-                return selectListItems.ToList();
-            }
-            */
-            [HttpPost]
+            
+            
         [Authorize]
-        [ValidateAntiForgeryToken]
+       
         public IActionResult PotwierdzWizyte(UmowWizyteViewModel model)
         {
             if (ModelState.IsValid)
@@ -306,9 +294,7 @@ namespace Stomatologia.Controllers
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var user = await _userManager.FindByIdAsync(userId);
             var imieClaim = (await _userManager.GetClaimsAsync(user)).FirstOrDefault(c => c.Type == "Imie");
-            var roles = await _userManager.GetRolesAsync(user);
-            var role = roles.FirstOrDefault();
-
+           
             var model = new UserProfileViewModel
             {
                 //Id = (string)user.Id,
@@ -318,9 +304,7 @@ namespace Stomatologia.Controllers
                 Pesel = (await _userManager.GetClaimsAsync(user)).FirstOrDefault(c => c.Type == "Pesel")?.Value,
                 PhoneNumber = (await _userManager.GetClaimsAsync(user)).FirstOrDefault(c => c.Type == "Telefon")?.Value,
                 Adres = (await _userManager.GetClaimsAsync(user)).FirstOrDefault(c => c.Type == "Adres")?.Value,
-                Role = (await _userManager.GetClaimsAsync(user)).FirstOrDefault(c => c.Type == "Role")?.Value,
-                Email = user.Email
-                
+                Email = user.Email   
             };
 
             return View(model);

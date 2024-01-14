@@ -8,6 +8,7 @@
     Console.WriteLine($"Liczba dostępnych godzin w ViewBag: {availableHours?.Count}");
 }
 
+<div class="container">
 <h2>Umów wizytę</h2>
 
 @using (Html.BeginForm("PotwierdzWizyte", "Wizyty", FormMethod.Post))
@@ -16,35 +17,46 @@
         <input type="hidden" name="selectedStomatologId" id="selectedStomatologId" value="" />
         <label for="selectedStomatolog">Wybierz stomatologa:</label>
         <select id="selectedStomatolog" name="selectedStomatolog">
-            @foreach (var stomatolog in availableStomatologists)
+                @foreach (var stomatolog in ViewBag.AvailableStomatologists)
             {
                 <option value="@stomatolog.Id">@stomatolog.Imie @stomatolog.Nazwisko</option>
             }
         </select>
 
-        <label for="selectedDate">Wybierz datę:</label>
-        <select id="selectedDate" name="selectedDate">
-            <!-- Dostępne daty zostaną dynamicznie dodane za pomocą JavaScript -->
-        </select>
+            <label for="selectedDate">Wybierz datę:</label>
+            <select id="selectedDate" name="selectedDate">
+                <!-- Dostępne daty zostaną dynamicznie dodane za pomocą JavaScript -->
+                @foreach (var date in ViewBag.AvailableDates)
+                {
+                    <option value="@date">@date.ToShortDateString()</option>
+                }
+            </select>
 
-        <label for="selectedHour">Wybierz godzinę:</label>
-        <select id="selectedHour" name="selectedHour">
-            <!-- Dostępne godziny zostaną dynamicznie dodane za pomocą JavaScript -->
-        </select>
+            <label for="selectedHour">Wybierz godzinę:</label>
+            <select id="selectedHour" name="selectedHour">
+                <!-- Dostępne godziny zostaną dynamicznie dodane za pomocą JavaScript -->
+                @foreach (var hour in ViewBag.AvailableHours)
+                {
+                    <option value="@hour">@hour</option>
+                }
+            </select>
 
-        <!-- Pozostałe pola formularza -->
+       
 
         <input type="submit" value="Umów wizytę" />
     </form>
 }
+</div>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-    var availableStomatologists = @Html.Raw(Json.Serialize(availableStomatologists));
-    var availableDates = @Html.Raw(Json.Serialize(availableDates));
-    var availableHours = @Html.Raw(Json.Serialize(availableHours));
-
+    var availableStomatologists = @Html.Raw(Json.Serialize(ViewBag.AvailableStomatologists));
+    var availableDates = @Html.Raw(Json.Serialize(ViewBag.AvailableDates));
+    var availableHours = @Html.Raw(Json.Serialize(ViewBag.AvailableHours));
+    
+    
     // Skrypt do obsługi dynamicznego dodawania dostępnych dat i godzin
     $(document).ready(function () {
+        console.log("Skrypt jest załadowany.");
         $('#selectedStomatolog').change(function () {
             var stomatologId = $(this).val();
             $.ajax({

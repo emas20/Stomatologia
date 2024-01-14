@@ -76,7 +76,11 @@ namespace Stomatologia.Data
                 new UmowWizyteViewModel { WybranaData = DateTime.Now.AddDays(3), WybranaGodzina = "09:00", WybranyStomatologId = stomatologIds[random.Next(stomatologIds.Count)] },
                 new UmowWizyteViewModel { WybranaData = DateTime.Now.AddDays(8), WybranaGodzina = "10:30", WybranyStomatologId = stomatologIds[random.Next(stomatologIds.Count)] },
                 new UmowWizyteViewModel { WybranaData = DateTime.Now.AddDays(10), WybranaGodzina = "11:00", WybranyStomatologId = stomatologIds[random.Next(stomatologIds.Count)] },
-                new UmowWizyteViewModel { WybranyStomatologId = "3", WybranaData = DateTime.Now.AddDays(7), WybranaGodzina = "09:00" }
+                new UmowWizyteViewModel { WybranyStomatologId = "3", WybranaData = DateTime.Now.AddDays(7), WybranaGodzina = "09:00" },
+                new UmowWizyteViewModel { WybranyStomatologId = "4", WybranaData = DateTime.Now.AddDays(14), WybranaGodzina = "10:00" },
+                new UmowWizyteViewModel { WybranyStomatologId = "5", WybranaData = DateTime.Now.AddDays(15), WybranaGodzina = "10:30" },
+                new UmowWizyteViewModel { WybranyStomatologId = "6", WybranaData = DateTime.Now.AddDays(3), WybranaGodzina = "11:00" },
+                new UmowWizyteViewModel { WybranyStomatologId = "7", WybranaData = DateTime.Now.AddDays(8), WybranaGodzina = "09:00" }
                         };
 
 
